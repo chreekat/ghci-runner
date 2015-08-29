@@ -1,0 +1,19 @@
+name: snowdrift
+version: 0.0.0.0
+category: web
+maintainer: dev@lists.snowdrift.coop
+synopsis: FIXME
+description:
+    FIXME
+
+    FIXME
+license: AGPL-3
+license-file: LICENSE.md
+build-type: Simple
+cabal-version: >=1.18
+
+executable snowdrift
+    hs-source-dirs: src
+    main-is: Main.hs
+    default-language: Haskell2010
+    build-depends: base < 5
