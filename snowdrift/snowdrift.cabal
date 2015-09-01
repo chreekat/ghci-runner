@@ -12,8 +12,20 @@ license-file: LICENSE.md
 build-type: Simple
 cabal-version: >=1.18
 
-executable snowdrift
+library
     hs-source-dirs: src
-    main-is: Main.hs
     default-language: Haskell2010
-    build-depends: base < 5
+    build-depends:
+        base < 5
+        , yesod
+    exposed-modules:
+        Snowdrift
+
+test-suite test-snowdrift
+    hs-source-dirs: test
+    main-is: Main.hs
+    type: exitcode-stdio-1.0
+    default-language: Haskell2010
+    build-depends:
+        base < 5
+        , snowdrift
