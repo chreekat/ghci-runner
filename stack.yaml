@@ -1,5 +1,6 @@
 flags: {}
 packages:
 - snowdrift/
+- ghci-runner/
 extra-deps: []
 resolver: lts-2.21
