@@ -1,3 +1,12 @@
+-- | Use this module to build your own version of the Yesod scaffolding's
+-- DevelMain.hs. Do this by creating a module that wraps a call to update
+-- with proper arguments, e.g. a test-main for the library. Generally
+-- you'll re-export shutdown as-is.
+--
+-- Then you can quickly iterate and rerun the computation. Start @stack
+-- ghci@, :load your module, and run the computation that is the wrapped
+-- version of update. After hacking some, :reload and rerun the
+-- computation.
 module Dev.Runner (update, shutdown) where
 
 import Control.Exception (finally)
@@ -8,7 +17,9 @@ import Foreign.Store
 import GHC.Word
 
 -- | (Re)start the computation.
-update :: IO () -> IO () -> IO ()
+update :: IO () -- ^ Computation to run
+       -> IO () -- ^ Shutdown hook (try @return ()@ for simple cases)
+       -> IO ()
 update comp abrt = do
     mtidStore <- lookupStore tidStoreNum
     case mtidStore of
@@ -42,7 +53,7 @@ update comp abrt = do
                         -- Normally this should be fine
                         (putMVar lock () >> abrt))
 
--- | kill the computation
+-- | Kill the computation.
 shutdown :: IO ()
 shutdown = do
     mtidStore <- lookupStore tidStoreNum
