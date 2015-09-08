@@ -5,8 +5,7 @@ maintainer: b@chreekat.net
 synopsis: Helper function for running computations in ghci
 description:
     This came directly from the yesod-scaffolding (DevelMain.hs). It has
-    been generalized and librarified. For an example usage, see Snowdrift's
-    dev/Runner.hs (FIXME: make a link once it's merged)
+    been generalized and librarified. More docs are in Dev.Runner.
 license: BSD3
 license-file: LICENSE
 build-type: Simple
