@@ -15,7 +15,7 @@ computation.
 module Dev.Runner (update, shutdown) where
 
 import Control.Exception (finally)
-import Control.Monad ((>=>), forever)
+import Control.Monad ((>=>))
 import Control.Concurrent
 import Data.IORef
 import Foreign.Store
